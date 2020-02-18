@@ -8,52 +8,37 @@
 <body class="w3-auto">
 
 <!-- Меню -->
-<div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left w3-light-grey" style="width:200px" id="menu" w3-include-html="menu.html">
-    <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Затвори &times;</button>
-    <h2 class="w3-center">Навигация</h2>
-    <a class="w3-bar-item w3-button" href="#" onclick="load()">Начало</a>
-    <a class="w3-bar-item w3-button" href="#">За студенти</a>
-    <a class="w3-bar-item w3-button" href="#">Състав</a>
-</div>
+<div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-light-grey" style="width:200px" id="menu" w3-include-html="menu.html"></div>
 <!-- Страница -->
 <div class="w3-main" style="margin-left:200px">
 <header class="w3-container kvg-color">
     <button class="w3-button w3-xlarge w3-hide-large kvg-accent" onclick="w3_open()">&#9776;</button>
     <h3 class="w3-center">Физика на кондензираната материя и микроелектроника</h3>
-    <h1 class="w3-center">Начална страница</h1>
+    <h1 class="w3-center", id="title">Начална страница</h1>
 </header>
-<div class = "w3-container w3-padding-16" id="path">
-    <div>
-        <h1> Добре дошли в сайта на катедра ФКММ! </h1>
-    </div>
-    <div class="w3-panel w3-card w3-pale-yellow">
-        <h3>Сайтът е в процес на изграждане!</h3>
-        <p>Катедри „Физика на кондензираната материя“ и „Физика на твърдото тяло“ наскоро се обединиха в катедра „Физика на кондензираната материя и микроелектроника“. Тук ще се помещава новият сайт на обединената катедра, който все още е недовършен. Дотогава можете да ползвате старите сайтове на катедрите.</p> 
-    </div>
-    <div class = "w3-container w3-center">
-        <a class = "w3-button kvg-accent" href="http://fkm.phys.uni-sofia.bg/">ФКМ (стар сайт)</a>
-        <a class = "w3-button kvg-accent" href="http://fttme.phys.uni-sofia.bg/">ФТТМЕ (стар сайт)</a>
-    </div>
+
+<div class = "w3-container w3-padding-16" id="content">
+
 </div>
 
 <footer class="w3-container w3-padding-small w3-center w3-text-grey">
-    <h4>©2020, кат. Физика на кондензираната материя и микроелектроника</h4>
-    <p><a href="https://uni-sofia.bg">Софийски университет „Св. Климент Охридски“</a> | <a href="http://phys.uni-sofia.bg">Физически факултет</a> | <a href = "mailto:kgenkov@uni-sofia.bg">Поддръжка на сайта</a></p>
+
 </footer>
 
 </div>
 
 <script>
     includeHTML();
+    loadMainContent();
 </script>
 
 <script>
-function w3_open() {
-    document.getElementById("menu").style.display = "block";
-}
-function w3_close() {
-    document.getElementById("menu").style.display = "none";
-}
+    function w3_open() {
+        document.getElementById("menu").style.display = "block";
+    }
+    function w3_close() {
+        document.getElementById("menu").style.display = "none";
+    }
 </script>
 
 </body>
