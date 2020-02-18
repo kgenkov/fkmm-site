@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="w3.css">
-<H1 id="setTitle">Начална страница</H1>
+<script>document.getElementById("title").innerHTML='Начална страница';</script>
 
 <div>
     <h1> Добре дошли в сайта на катедра ФКММ! </h1>

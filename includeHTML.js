@@ -28,12 +28,18 @@ function includeHTML() {
 function load(path="home") {
       /* Make an HTTP request using the attribute value as the file name: */
       elmnt = document.getElementById("content");
-      document.getElementById("title").innerHTML='';
       xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4) {
-          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-          if (this.status == 404) {elmnt.innerHTML = "<h2 class='w3-panel w3-card w3-border w3-leftbar w3-border-red w3-pale-yellow w3-center w3-padding-16'>Страницата не е намерена!</h2>";}
+          if (this.status == 200) {
+            elmnt.innerHTML = this.response;
+            document.getElementById("title").innerHTML=document.getElementById("setTitle").innerHTML;
+            document.getElementById("setTitle").style.display="none";
+          }
+          if (this.status == 404) {
+            elmnt.innerHTML = "<h2 class='w3-panel w3-card w3-border w3-leftbar w3-border-red w3-pale-yellow w3-center w3-padding-16'>Страницата не е намерена!</h2>";
+            document.getElementById("title").innerHTML="";
+          }
         }
       }
       xhttp.open("GET", path, true);
@@ -49,4 +55,8 @@ function loadMainContent() {
     if (page == null) page = "home";
     console.log (page);
     load(page+".html");
+}
+
+function setTitle(title) {
+    document.getElementById("title").innerHTML=title;
 }
