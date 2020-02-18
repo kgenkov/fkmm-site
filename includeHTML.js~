@@ -25,7 +25,3 @@ function includeHTML() {
     }
   }
 }
-function load(path="index.html") {
-     document.getElementById("content").innerHTML='<object type="text/html" data="menu.html"></object>';
-}
-
