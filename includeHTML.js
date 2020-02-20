@@ -43,7 +43,8 @@ function load(path="home") {
           }
         }
       }
-      xhttp.open("GET", path, true);
+      history.pushState("", document.title , '?page='+path);
+      xhttp.open("GET", path+".html", true);
       xhttp.send();      
       /* Exit the function: */
       return;
@@ -55,5 +56,5 @@ function loadMainContent() {
     var page = urlParams.get ('page');
     if (page == null) page = "home";
     console.log (page);
-    load(page+".html");
+    load(page);
 }
