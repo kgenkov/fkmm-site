@@ -14,8 +14,30 @@
     <h2 class="w3-center">Навигация</h2>
     <a class="w3-bar-item w3-button" href="#" onclick='location.search="?page=home"'>Начало</a>
     <a class="w3-bar-item w3-button" href="#" onclick='location.search="?page=students"'>За студенти</a>
+    <a class="w3-bar-item w3-button" href="#" onclick="expandMenu('dropdown_demo','arrow_demo')"> Dropdown <i id="arrow_demo" class="fa fa-caret-right">></i> </a>
+    <div id="dropdown_demo" class="w3-white w3-hide">
+      <a class="w3-bar-item w3-button" href="#">Link</a>
+      <a class="w3-bar-item w3-button" href="#">Link</a>
+      <a class="w3-bar-item w3-button" href="#">Link</a>
+    </div>
     <a class="w3-bar-item w3-button" href="#" onclick='location.search="?page=staff"'>Състав</a>
     <a class="w3-bar-item w3-button" href="#" onclick='location.search="?page=contact"'>Контакти</a>
+    
+    <script>
+    function expandMenu(menu_id,arrow_id) {
+      var x = document.getElementById(menu_id);
+      var y = document.getElementById(arrow_id);
+      if (x.className.indexOf("w3-hide") == -1) {
+        x.className += " w3-hide";
+        y.className = y.className.replace("fa fa-caret-down", "fa fa-caret-right");
+        y.innerHTML = ">";
+      } else { 
+        x.className = x.className.replace(" w3-hide", "");
+        y.className = y.className.replace("fa fa-caret-right", "fa fa-caret-down");
+        y.innerHTML = "▼";
+      }
+    }
+    </script>
 </div>
 <!-- Страница -->
 <div class="w3-main" style="margin-left:200px; transition:none">
