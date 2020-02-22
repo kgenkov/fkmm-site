@@ -46,6 +46,7 @@ function load(path="home") {
       history.pushState("", document.title , '?page='+path);
       xhttp.open("GET", path+".html", true);
       xhttp.send();      
+      w3_close();
       /* Exit the function: */
       return;
 }
@@ -55,6 +56,13 @@ function loadMainContent() {
     const urlParams = new URLSearchParams (queryString);
     var page = urlParams.get ('page');
     if (page == null) page = "home";
-    console.log (page);
     load(page);
 }
+
+function w3_open() {
+    document.getElementById("menu").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("menu").style.display = "none";
+}
+

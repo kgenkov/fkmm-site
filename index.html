@@ -4,22 +4,53 @@
 <title>кат. ФКММ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
 <link rel="stylesheet" href="w3.css">
+<style>
+    html, body {
+        height: 100%;
+    }
+    .w3-main {
+        display: flex;
+        flex-direction: column;
+    }
+    .content {
+        flex: 1 0 auto;
+    }
+    footer {
+        flex-shrink: 0;
+    }
+</style>
 <link rel="icon" href="img/favicon.png" type="image/png" sizes="16x16">
 <body class="w3-auto w3-border-right">
 
 <!-- Меню -->
 <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-light-grey" style="width:200px" id="menu"><!-- --w3-include-html="menu.html">-->
-    <img src="img/fkmm-logo.svg" alt="ФКММ лого" style="width:100%" class="w3-padding-32 w3-hide-small w3-hide-medium" onclick='load(home"'>
+    <img src="img/fkmm-logo.svg" alt="ФКММ лого" style="width:100%" class="w3-padding-32 w3-hide-small w3-hide-medium" onclick='load("home")'>
     <button class="w3-bar-item w3-button w3-large w3-hide-large kvg-accent" onclick="w3_close()">&times; Затвори</button>
     <h2 class="w3-center">Навигация</h2>
     <a class="w3-bar-item w3-button" href="#" onclick='load("home")'>Начало</a>
-    <a class="w3-bar-item w3-button" href="#" onclick='load("students")'>За студенти</a>
-    <a class="w3-bar-item w3-button" href="#" onclick="expandMenu('dropdown_archive','arrow_archive')"> Архив <i id="arrow_archive" class="fa fa-caret-right">></i> </a>
+    <a class="w3-bar-item w3-button" href="#" onclick='load("аbout")'>За катедрата</a>
+    
+    <div class="w3-bar">
+        <a class="w3-button w3-threequarter" style="text-align:left" href="#" > Лаборатории </a>
+        <a id="arrow_labs" class="fa fa-caret-right w3-button w3-quarter" onclick="expandMenu('dropdown_labs','arrow_labs')">></a>
+    </div>
+    <div id="dropdown_labs" class="w3-white w3-hide">
+      <a class="w3-bar-item w3-button" href="#">Технология на материалите</a>
+      <a class="w3-bar-item w3-button" href="#">Електронни и фононни свойства</a>
+    <a class="w3-bar-item w3-button" href="#"> Физика и техника на полупроводниците</a>
+      
+    </div>
+
+    <a class="w3-bar-item w3-button" href="#" onclick='load("staff")'>Състав</a>
+    
+    <div class="w3-bar ">
+        <a class="w3-button w3-threequarter" href="#" style="text-align:left" onclick='load("archive")'> Архив </a> 
+        <a id="arrow_archive" class="fa fa-caret-right w3-button w3-quarter" onclick="expandMenu('dropdown_archive','arrow_archive')" >></a>
+    </div>
     <div id="dropdown_archive" class="w3-white w3-hide">
       <a class="w3-bar-item w3-button" target="_blank" href="http://fkm.phys.uni-sofia.bg/">ФКМ (стар сайт)</a>
       <a class="w3-bar-item w3-button" target="_blank" href="http://fttme.phys.uni-sofia.bg/">ФТТМЕ (стар сайт)</a>
     </div>
-    <a class="w3-bar-item w3-button" href="#" onclick='load("staff")'>Състав</a>
     <a class="w3-bar-item w3-button" href="#" onclick='load("contact")'>Контакти</a>
     
     <script>
@@ -34,23 +65,25 @@
         x.className = x.className.replace(" w3-hide", "");
         y.className = y.className.replace("fa fa-caret-right", "fa fa-caret-down");
         y.innerHTML = "▼";
+        console.log(arrow_id.innerHTML);
       }
     }
     </script>
 </div>
+
 <!-- Страница -->
 <div class="w3-main" style="margin-left:200px; transition:none">
 <header class="w3-container w3-border-bottom w3-pale-blue w3-border-blue-gray">
-    <button class="w3-button w3-xlarge w3-hide-large kvg-accent" onclick="w3_open()">&#9776;</button>
+    <button class="w3-button w3-xlarge w3-hide-large kvg-color" onclick="w3_open()">&#9776;</button>
     <h3 class="w3-center">Физика на кондензираната материя и микроелектроника</h3>
     <h1 class="w3-container w3-center", id="title">Начална страница</h1>
 </header>
 
-<div class = "w3-container w3-padding-16" id="content">
+<div class = "w3-container w3-padding-16 content" id="content">
 
 </div>
 
-<footer class="w3-container w3-padding-small w3-center w3-text-grey">  <!--w3-include-html="footer.html">-->
+<footer class="w3-container w3-padding-small w3-center w3-text-grey" style="">  <!--w3-include-html="footer.html">-->
     <h4>©2020, кат. Физика на кондензираната материя и микроелектроника</h4>
     <p><a href="https://uni-sofia.bg">Софийски университет „Св. Климент Охридски“</a> | <a href="http://phys.uni-sofia.bg">Физически факултет</a> | <a href = "mailto:kgenkov@uni-sofia.bg">Поддръжка на сайта</a></p>
 </footer>
@@ -60,15 +93,6 @@
 <script>
     //includeHTML();
     loadMainContent();
-</script>
-
-<script>
-    function w3_open() {
-        document.getElementById("menu").style.display = "block";
-    }
-    function w3_close() {
-        document.getElementById("menu").style.display = "none";
-    }
 </script>
 
 </body>
