@@ -33,7 +33,7 @@
     
     <div class="w3-bar">
         <a class="w3-button w3-col s9" style="text-align:left" href="#" > Лаборатории</a>
-        <a id="arrow_labs" class="fa fa-caret-right w3-button w3-col s3" onclick="expandMenu('dropdown_labs','arrow_labs')">></a>
+        <a id="arrow_labs" class="fa fa-caret-right w3-button w3-col s3" onclick="expandMenu('dropdown_labs',event)">></a>
     </div>
     <div id="dropdown_labs" class="w3-white w3-hide">
       <a class="w3-bar-item w3-button" href="#">Технология на материалите</a>
@@ -46,7 +46,7 @@
     
     <div class="w3-bar ">
         <a class="w3-button w3-col s9" href="#" style="text-align:left" onclick='load("archive")'> Архив </a> 
-        <a id="arrow_archive" class="fa fa-caret-right w3-button w3-col s3" onclick="expandMenu('dropdown_archive','arrow_archive')" >></a>
+        <a id="arrow_archive" class="fa fa-caret-right w3-button w3-col s3" onclick="expandMenu('dropdown_archive',event)" >></a>
     </div>
     <div id="dropdown_archive" class="w3-white w3-hide">
       <a class="w3-bar-item w3-button" target="_blank" href="http://fkm.phys.uni-sofia.bg/">ФКМ (стар сайт)</a>
@@ -55,9 +55,9 @@
     <a class="w3-bar-item w3-button" href="#" onclick='load("contact")'>Контакти</a>
     
     <script>
-    function expandMenu(menu_id,arrow_id) {
+    function expandMenu(menu_id,evt) {
       var x = document.getElementById(menu_id);
-      var y = document.getElementById(arrow_id);
+      var y = evt.currentTarget;
       if (x.className.indexOf("w3-hide") == -1) {
         x.className += " w3-hide";
         y.className = y.className.replace("fa fa-caret-down", "fa fa-caret-right");
@@ -66,7 +66,6 @@
         x.className = x.className.replace(" w3-hide", "");
         y.className = y.className.replace("fa fa-caret-right", "fa fa-caret-down");
         y.innerHTML = "▼";
-        console.log(arrow_id.innerHTML);
       }
     }
     </script>
