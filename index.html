@@ -5,8 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
 <link rel="stylesheet" href="w3.css">
 <style>
-    html, body {
-        height: 100%;
+    html {
+        height: auto;
+        display: flex;
+        width: 100vw;
+    }
+    body {
+        height:auto;
+        min-height: 100vh;
+        flex:1;
+        width: 100vw;
     }
     .w3-main {
         height: 100%;
@@ -21,17 +29,22 @@
     }
 </style>
 <link rel="icon" href="img/favicon.png" type="image/png" sizes="16x16">
-<body class="w3-auto w3-border-right">
+<body class="w3-auto">
 
 <!-- Меню -->
 <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-light-grey" style="width:200px" id="menu"><!-- --w3-include-html="menu.html">-->
     <img src="img/fkmm-logo.svg" alt="ФКММ лого" style="width:100%" class="w3-padding-32 w3-hide-small w3-hide-medium" onclick='load("home")'>
     <button class="w3-bar-item w3-button w3-large w3-hide-large kvg-accent" onclick="w3_close()">&times; Затвори</button>
     <h2 class="w3-center">Навигация</h2>
-    <a class="w3-bar-item w3-button" href="#" onclick='load("home")'>Начало</a>
-    <a class="w3-bar-item w3-button" href="#" onclick='load("аbout")'>За катедрата</a>
-    <a class="w3-bar-item w3-button" href="#" onclick='load("thesis-topics")'>Теми за дипломни работи</a>
-    
+    <nav>
+    <ul style="list-style-type: none;padding-left: 0;">
+    <li><a class="w3-bar-item w3-button" href="#" onclick='load("home")'>Начало</a>
+    <ul style="list-style-type: none;padding-left: 8px;">
+    <li><a class="w3-bar-item w3-button" href="#" onclick='load("аbout")'>За катедрата</a></li>
+    </ul>
+    </li>
+    <li><a class="w3-bar-item w3-button" href="#" onclick='load("thesis-topics")'>Теми за дипломни работи</a></li>
+    </ul>
     <div class="w3-bar">
         <a class="w3-button w3-col s9" style="text-align:left" href="#" > Лаборатории</a>
         <a id="arrow_labs" class="fa fa-caret-right w3-button w3-col s3" onclick="expandMenu('dropdown_labs',event)">></a>
@@ -54,7 +67,7 @@
       <a class="w3-bar-item w3-button" target="_blank" href="http://fttme.phys.uni-sofia.bg/">ФТТМЕ (стар сайт)</a>
     </div>
     <a class="w3-bar-item w3-button" href="#" onclick='load("contact")'>Контакти</a>
-    
+    </nav>
     <script>
     function expandMenu(menu_id,evt) {
       var x = document.getElementById(menu_id);
@@ -73,7 +86,7 @@
 </div>
 
 <!-- Страница -->
-<div class="w3-main" style="margin-left:200px; transition:none">
+<div class="w3-main w3-border-right" style="margin-left:200px; transition:none">
 <header class="w3-container w3-border-bottom w3-pale-blue w3-border-blue-gray">
     <button class="w3-button w3-xlarge w3-hide-large kvg-color" onclick="w3_open()">&#9776;</button>
     <h3 class="w3-center">Физика на кондензираната материя и микроелектроника</h3>
