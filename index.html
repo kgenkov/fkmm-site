@@ -4,38 +4,9 @@
 <title>кат. ФКММ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
 <link rel="stylesheet" href="w3.css">
-<style>
-    html {
-        height: auto;
-        display: flex;
-        width: 100vw;
-    }
-    body {
-        height:auto;
-        min-height: 100vh;
-        flex:1;
-        width: 100vw;
-    }
-    .w3-main {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    .content {
-        flex: 1 0 auto;
-    }
-    .footer {
-        flex-shrink: 0;
-    }
-    nav ul ul {
-        list-style-type: none;
-        padding-left: 8px;
-    }
-    nav ul {
-        list-style-type: none;padding-left: 0;
-    }
-</style>
+<link rel="stylesheet" href="fkmm.css">
 <link rel="icon" href="img/favicon.png" type="image/png" sizes="16x16">
+
 <body class="w3-auto">
 
 <!-- Меню -->
@@ -46,12 +17,12 @@
     <nav>
     <ul>
         <li><a class="w3-bar-item w3-button" href="javascript:load('home')">Начало</a></li>
-        <li><a class="w3-bar-item w3-button" href="javascript:load('аbout')">За катедрата</a></li>
+        <li><a class="w3-bar-item w3-button" href="javascript:load('about')">За катедрата</a></li>
         <li><a class="w3-bar-item w3-button" href="javascript:load('thesis-topics')">Теми за дипломни работи</a></li>
         
         <li class="w3-bar">
-            <a class="w3-button w3-col s9" style="text-align:left" href="javascript:load(labs)" > Лаборатории</a>
-            <a id="arrow_labs" class="fa fa-caret-right w3-button w3-col s3" onclick="expandMenu('dropdown_labs',event)">></a>
+            <a class="w3-button w3-col s9" style="text-align:left" href="javascript:load('labs')" > Лаборатории</a>
+            <a id="arrow_labs" class="fa fa-caret-right w3-button w3-col s3" onclick="expandMenu(event)">></a>
             <ul id="dropdown_labs" class=" w3-hide">
                 <li><a class="w3-bar-item w3-button" href="#">Технология на материалите</a></li>
                 <li><a class="w3-bar-item w3-button" href="#">Електронни и фононни свойства</a></li>
@@ -63,7 +34,7 @@
 
         <li class="w3-bar ">
             <a class="w3-button w3-col s9" href="javascript:load('archive')" style="text-align:left"> Архив </a> 
-            <a id="arrow_archive" class="fa fa-caret-right w3-button w3-col s3" onclick="expandMenu('dropdown_archive',event)" >></a>
+            <a id="arrow_archive" class="fa fa-caret-right w3-button w3-col s3" onclick="expandMenu(event)" >></a>
             <ul id="dropdown_archive" class=" w3-hide">
                 <li><a class="w3-bar-item w3-button" target="_blank" href="http://fkm.phys.uni-sofia.bg/">ФКМ (стар сайт)</a></li>
                 <li><a class="w3-bar-item w3-button" target="_blank" href="http://fttme.phys.uni-sofia.bg/">ФТТМЕ (стар сайт)</a></li>
@@ -73,17 +44,17 @@
     </ul>
     </nav>
     <script>
-    function expandMenu(menu_id,evt) {
-      var x = document.getElementById(menu_id);
-      var y = evt.currentTarget;
-      if (x.className.indexOf("w3-hide") == -1) {
-        x.className += " w3-hide";
-        y.className = y.className.replace("fa fa-caret-down", "fa fa-caret-right");
-        y.innerHTML = ">";
+    function expandMenu(evt) {
+      var arrow = evt.currentTarget;
+      var target = arrow.parentNode.getElementsByTagName("ul")[0]; 
+      if (target.className.indexOf("w3-hide") == -1) {
+        target.className += " w3-hide";
+        arrow.className = arrow.className.replace("fa fa-caret-down", "fa fa-caret-right");
+        arrow.innerHTML = ">";
       } else { 
-        x.className = x.className.replace(" w3-hide", "");
-        y.className = y.className.replace("fa fa-caret-right", "fa fa-caret-down");
-        y.innerHTML = "▼";
+        target.className = target.className.replace(" w3-hide", "");
+        arrow.className = arrow.className.replace("fa fa-caret-right", "fa fa-caret-down");
+        arrow.innerHTML = "▼";
       }
     }
     </script>
@@ -97,15 +68,20 @@
     <h1 class="w3-container w3-center", id="title">Начална страница</h1>
 </header>
 
+<!-- Тук се зарежда съдържанието -->
 <div class = "w3-container w3-padding-16 content" id="content">
 
 </div>
 
 <footer class="w3-container w3-padding-small w3-center w3-text-grey footer" style="">  <!--w3-include-html="footer.html">-->
-    <h4>©2020, кат. Физика на кондензираната материя и микроелектроника</h4>
-    <p><a href="https://uni-sofia.bg">Софийски университет „Св. Климент Охридски“</a> | <a href="http://phys.uni-sofia.bg">Физически факултет</a> | <a href = "mailto:kgenkov@uni-sofia.bg">Поддръжка на сайта</a></p>
+    <span id="lastModified"> Последна промяна: <script>document.write (document.lastModified);</script></span>
+    <h4 style="margin-bottom:0; margin-top:0">©2020, кат. Физика на кондензираната материя и микроелектроника</h4>
+    <p style="margin-top:0">
+        <a href="https://uni-sofia.bg">Софийски университет „Св. Климент Охридски“</a> | 
+        <a href="http://phys.uni-sofia.bg">Физически факултет</a> | 
+        <a href = "mailto:kgenkov@uni-sofia.bg">Поддръжка на сайта</a>
+    </p>
 </footer>
-
 </div>
 
 <script>

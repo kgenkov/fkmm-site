@@ -34,11 +34,13 @@ function load(path="home") {
         if (this.readyState == 4) {
           if (this.status == 200) {
             elmnt.innerHTML = this.response;
+            document.getElementById("lastModified").innerHTML="Последна промяна: " + this.getResponseHeader("Last-Modified");
             document.getElementById("title").innerHTML=document.getElementById("setTitle").innerHTML;
             document.getElementById("setTitle").style.display="none";
           }
           if (this.status == 404) {
             elmnt.innerHTML = "<h2 class='w3-panel w3-card w3-border w3-leftbar w3-border-red w3-pale-yellow w3-center w3-padding-16'>Страницата не е намерена!</h2>";
+            document.getElementById("lastModified").innerHTML="";
             document.getElementById("title").innerHTML="";
           }
         }
