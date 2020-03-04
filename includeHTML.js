@@ -59,6 +59,7 @@ function loadMainContent() {
     var page = urlParams.get ('page');
     if (page == null) page = "home";
     load(page);
+    return;
 }
 
 function w3_open() {

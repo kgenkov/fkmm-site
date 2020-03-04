@@ -27,3 +27,18 @@ nav ul ul {
 nav ul {
     list-style-type: none;padding-left: 0;
 }
+
+.fkmm-collapse {
+    display:flex;
+    padding:0;
+}
+.fkmm-collapse a {
+    text-align:left;
+    white-space:normal;
+}
+
+.fkmm-collapse arrow {
+    padding:8px;
+}
+
+ a[target='_blank']::after {content:'\2197'; opacity:0.7; text-decoration:none; display:inline-block} 

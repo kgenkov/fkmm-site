@@ -20,22 +20,25 @@
         <li><a class="w3-bar-item w3-button" href="javascript:load('about')">За катедрата</a></li>
         <li><a class="w3-bar-item w3-button" href="javascript:load('thesis-topics')">Теми за дипломни работи</a></li>
         
-        <li class="w3-bar">
-            <a class="w3-button w3-col s9" style="text-align:left" href="javascript:load('labs')" > Лаборатории</a>
-            <a id="arrow_labs" class="fa fa-caret-right w3-button w3-col s3" onclick="expandMenu(event)">></a>
-            <ul id="dropdown_labs" class=" w3-hide">
+        <li>
+            <div class="fkmm-collapse  w3-row">
+                <a class="w3-col s10 w3-button" href="javascript:load('labs')">Лаборатории</a>
+                <arrow class="fa fa-caret-right w3-col s2 w3-button" onclick="expandMenu(event)">►</arrow>
+            </div>
+            <ul class=" w3-hide">
                 <li><a class="w3-bar-item w3-button" href="#">Технология на материалите</a></li>
                 <li><a class="w3-bar-item w3-button" href="#">Електронни и фононни свойства</a></li>
                 <li><a class="w3-bar-item w3-button" href="#"> Физика и техника на полупроводниците</a></li>
             </ul>
         </li>
-
         <li><a class="w3-bar-item w3-button" href='javascript:load("staff")'>Състав</a></li>
 
         <li class="w3-bar ">
-            <a class="w3-button w3-col s9" href="javascript:load('archive')" style="text-align:left"> Архив </a> 
-            <a id="arrow_archive" class="fa fa-caret-right w3-button w3-col s3" onclick="expandMenu(event)" >></a>
-            <ul id="dropdown_archive" class=" w3-hide">
+            <div class="w3-bar-item w3-row w3-button" style="padding:0" onclick="expandMenu(event)">
+                <a class="w3-button w3-col s10" style="text-align:left"> Архив </a> 
+                <arrow class="fa fa-caret-right w3-col s2 w3-button" style="padding:8px">►</arrow>
+            </div>
+            <ul class=" w3-hide">
                 <li><a class="w3-bar-item w3-button" target="_blank" href="http://fkm.phys.uni-sofia.bg/">ФКМ (стар сайт)</a></li>
                 <li><a class="w3-bar-item w3-button" target="_blank" href="http://fttme.phys.uni-sofia.bg/">ФТТМЕ (стар сайт)</a></li>
             </ul>
@@ -45,17 +48,27 @@
     </nav>
     <script>
     function expandMenu(evt) {
-      var arrow = evt.currentTarget;
-      var target = arrow.parentNode.getElementsByTagName("ul")[0]; 
-      if (target.className.indexOf("w3-hide") == -1) {
-        target.className += " w3-hide";
-        arrow.className = arrow.className.replace("fa fa-caret-down", "fa fa-caret-right");
-        arrow.innerHTML = ">";
-      } else { 
-        target.className = target.className.replace(" w3-hide", "");
-        arrow.className = arrow.className.replace("fa fa-caret-right", "fa fa-caret-down");
-        arrow.innerHTML = "▼";
-      }
+        tag = evt.currentTarget.tagName;
+        console.log (tag);
+        if (tag == "A") {
+            arrow = evt.currentTarget.parentNode.getElementsByTagName("arrow")[0];
+        } else if (tag == "DIV") {
+            var arrow = evt.currentTarget.getElementsByTagName("arrow")[0];
+        } else if (tag == "ARROW") {
+            var arrow = evt.currentTarget;
+        } else {return};
+        target = arrow.parentNode.parentNode.getElementsByTagName("ul")[0];
+        if (target.className.indexOf("w3-hide") == -1) {
+            target.className += " w3-hide";
+            arrow.className = arrow.className.replace("fa fa-caret-down", "fa fa-caret-right");
+            arrow.innerHTML = "►";
+        } else { 
+            target.className = target.className.replace(" w3-hide", "");
+            arrow.className = arrow.className.replace("fa fa-caret-right", "fa fa-caret-down");
+            arrow.innerHTML = "▼";
+        }
+        evt.stopPropagation();
+        return;
     }
     </script>
 </div>
@@ -63,7 +76,7 @@
 <!-- Страница -->
 <div class="w3-main w3-border-right" style="margin-left:200px; transition:none">
 <header class="w3-container w3-border-bottom w3-pale-blue w3-border-blue-gray">
-    <button class="w3-button w3-xlarge w3-hide-large kvg-color" onclick="w3_open()">&javascript:9776;</button>
+    <button class="w3-button w3-xlarge w3-hide-large kvg-color" onclick="w3_open()">&#9776;</button>
     <h3 class="w3-center">Физика на кондензираната материя и микроелектроника</h3>
     <h1 class="w3-container w3-center", id="title">Начална страница</h1>
 </header>
@@ -74,11 +87,11 @@
 </div>
 
 <footer class="w3-container w3-padding-small w3-center w3-text-grey footer" style="">  <!--w3-include-html="footer.html">-->
-    <span id="lastModified"> Последна промяна: <script>document.write (document.lastModified);</script></span>
+    <span id="lastModified"> </script></span>
     <h4 style="margin-bottom:0; margin-top:0">©2020, кат. Физика на кондензираната материя и микроелектроника</h4>
     <p style="margin-top:0">
-        <a href="https://uni-sofia.bg">Софийски университет „Св. Климент Охридски“</a> | 
-        <a href="http://phys.uni-sofia.bg">Физически факултет</a> | 
+        <a href="https://uni-sofia.bg" target="_blank">Софийски университет „Св. Климент Охридски“</a> | 
+        <a href="http://phys.uni-sofia.bg" target="_blank">Физически факултет</a> | 
         <a href = "mailto:kgenkov@uni-sofia.bg">Поддръжка на сайта</a>
     </p>
 </footer>
