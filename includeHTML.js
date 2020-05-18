@@ -51,7 +51,7 @@ function load(path="home") {
         }
       }
       history.pushState("", document.title , '?page='+path);
-      
+
       xhttp.open("GET", path.split("#")[0]+".html", true);
       xhttp.send();      
       w3_close();
