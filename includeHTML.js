@@ -37,6 +37,7 @@ function load(path="home") {
             document.getElementById("lastModified").innerHTML="Последна промяна: " + this.getResponseHeader("Last-Modified");
             document.getElementById("title").innerHTML=document.getElementById("setTitle").innerHTML;
             document.getElementById("setTitle").style.display="none";
+            location.hash = " ";
             location.hash = "";
             scroll = path.split("#")[1];
             if (scroll != undefined) {
