@@ -39,6 +39,7 @@ function load(path="home") {
             document.getElementById("setTitle").style.display="none";
             scroll = path.split("#")[1];
             if (scroll != undefined) {
+                location.hash = "";
                 location.hash = scroll;
             }
           }
