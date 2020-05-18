@@ -39,7 +39,7 @@ function load(path="home") {
             document.getElementById("setTitle").style.display="none";
             scroll = path.split("#")[1];
             if (scroll != undefined) {
-                document.hash = scroll;
+                location.hash = scroll;
             }
           }
           if (this.status == 404) {
