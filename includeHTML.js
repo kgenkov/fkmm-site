@@ -37,6 +37,11 @@ function load(path="home") {
             document.getElementById("lastModified").innerHTML="Последна промяна: " + this.getResponseHeader("Last-Modified");
             document.getElementById("title").innerHTML=document.getElementById("setTitle").innerHTML;
             document.getElementById("setTitle").style.display="none";
+            scroll = path.split("#")[1];
+            if (scroll != undefined) {
+                document.hash = scroll;
+            }
+            }
           }
           if (this.status == 404) {
             elmnt.innerHTML = "<h2 class='w3-panel w3-card w3-border w3-leftbar w3-border-red w3-pale-yellow w3-center w3-padding-16'>Страницата не е намерена!</h2>";
@@ -47,7 +52,7 @@ function load(path="home") {
       }
       history.pushState("", document.title , '?page='+path);
       
-      xhttp.open("GET", path.split("#")[0]+".html"+(path.split("#").length>1?"#"+path.split("#")[1]:""), true);
+      xhttp.open("GET", path.split("#")[0]+".html"), true);
       xhttp.send();      
       w3_close();
       /* Exit the function: */

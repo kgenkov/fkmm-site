@@ -2,6 +2,7 @@ html {
     height: auto;
     display: flex;
     width: 100vw;
+    scroll-behavior: smooth; 
 }
 body {
     height:auto;
