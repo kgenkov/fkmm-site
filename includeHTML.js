@@ -41,7 +41,6 @@ function load(path="home") {
             if (scroll != undefined) {
                 document.hash = scroll;
             }
-            }
           }
           if (this.status == 404) {
             elmnt.innerHTML = "<h2 class='w3-panel w3-card w3-border w3-leftbar w3-border-red w3-pale-yellow w3-center w3-padding-16'>Страницата не е намерена!</h2>";
