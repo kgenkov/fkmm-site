@@ -46,7 +46,8 @@ function load(path="home") {
         }
       }
       history.pushState("", document.title , '?page='+path);
-      xhttp.open("GET", path+".html", true);
+      
+      xhttp.open("GET", path.split("#")[0]+".html"+path.split("#")[1], true);
       xhttp.send();      
       w3_close();
       /* Exit the function: */
