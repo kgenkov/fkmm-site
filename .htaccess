@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^([-#а-яА-Я\w]*)$ page=$1 [L,R=301] 
