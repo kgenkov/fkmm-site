@@ -1,1 +1,2 @@
-RedirectMatch ^([-#а-яА-Я\w]+)$ ?page=$1 [L,R=301] 
+RewriteEngine on
+RewriteRule ^([-#а-яА-Я\w]*)$ page=$2 [L,R=301] 
