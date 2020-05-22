@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="bg">
 <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-<script src="includeHTML.js" charset="utf-8"></script>
+<script src="fkmm.js" charset="utf-8"></script>
 <title>кат. ФКММ</title>
 <link rel="stylesheet" href="w3.css">
 <link rel="stylesheet" href="fkmm.css">
@@ -45,31 +45,6 @@
         <li><a class="w3-bar-item w3-button" href="javascript:" onclick='load("contact")'>Контакти</a></li>
     </ul>
     </nav>
-    <script>
-    function expandMenu(evt) {
-        tag = evt.currentTarget.tagName;
-        console.log (tag);
-        if (tag == "A") {
-            arrow = evt.currentTarget.parentNode.getElementsByTagName("arrow")[0];
-        } else if (tag == "DIV") {
-            var arrow = evt.currentTarget.getElementsByTagName("arrow")[0];
-        } else if (tag == "ARROW") {
-            var arrow = evt.currentTarget;
-        } else {return};
-        target = arrow.parentNode.parentNode.getElementsByTagName("ul")[0];
-        if (target.className.indexOf("w3-hide") == -1) {
-            target.className += " w3-hide";
-            arrow.className = arrow.className.replace("fa fa-caret-down", "fa fa-caret-right");
-            arrow.innerHTML = "►";
-        } else { 
-            target.className = target.className.replace(" w3-hide", "");
-            arrow.className = arrow.className.replace("fa fa-caret-right", "fa fa-caret-down");
-            arrow.innerHTML = "▼";
-        }
-        evt.stopPropagation();
-        return;
-    }
-    </script>
 </div>
 
 <!-- Страница -->
@@ -82,11 +57,14 @@
 
 <!-- Тук се зарежда съдържанието -->
 <div class = "w3-container w3-padding-16 content" id="content">
-
+    <div class="w3-panel w3-card w3-pale-yellow w3-display-container w3-border-red">
+        <h3>Сайтът не поддържа Internet Explorer и използва JavaScript!</h3>
+        <p>Моля, използвайте съвременен браузер, за да разглеждате този сайт! Също така, моля, разрешете JavaScript! Ако не ползвате Internet Explorer, имате активиран JavaScript и все още виждате това съобщение, моля, свържете се с администратора на сайта на kgenkov (маймунка) uni-sofia.bg.</p> 
+    </div>
 </div>
 
 <footer class="w3-container w3-padding-small w3-center w3-text-grey footer" style="">  <!--w3-include-html="footer.html">-->
-    <span id="lastModified"> </script></span>
+    <span id="lastModified"> </span>
     <h4 style="margin-bottom:0; margin-top:0">©2020, кат. Физика на кондензираната материя и микроелектроника</h4>
     <p style="margin-top:0">
         <a href="https://uni-sofia.bg" target="_blank">Софийски университет „Св. Климент Охридски“</a> | 

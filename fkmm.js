@@ -1,30 +1,26 @@
-/* function includeHTML() {
-  var z, i, elmnt, file, xhttp;
-//  Loop through a collection of all HTML elements:
-  z = document.getElementsByTagName("*");
-  for (i = 0; i < z.length; i++) {
-    elmnt = z[i];
-//    search for elements with a certain atrribute:
-    file = elmnt.getAttribute("w3-include-html");
-    if (file) {
-//      Make an HTTP request using the attribute value as the file name:
-      xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4) {
-          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-//          Remove the attribute, and call this function once more:
-          elmnt.removeAttribute("w3-include-html");
-          includeHTML();
-        }
-      }
-      xhttp.open("GET", file, true);
-      xhttp.send();
-//    Exit the function:
-      return;
+function expandMenu(evt) {
+    tag = evt.currentTarget.tagName;
+    console.log (tag);
+    if (tag == "A") {
+        arrow = evt.currentTarget.parentNode.getElementsByTagName("arrow")[0];
+    } else if (tag == "DIV") {
+        var arrow = evt.currentTarget.getElementsByTagName("arrow")[0];
+    } else if (tag == "ARROW") {
+        var arrow = evt.currentTarget;
+    } else {return};
+    target = arrow.parentNode.parentNode.getElementsByTagName("ul")[0];
+    if (target.className.indexOf("w3-hide") == -1) {
+        target.className += " w3-hide";
+        arrow.className = arrow.className.replace("fa fa-caret-down", "fa fa-caret-right");
+        arrow.innerHTML = "►";
+    } else { 
+        target.className = target.className.replace(" w3-hide", "");
+        arrow.className = arrow.className.replace("fa fa-caret-right", "fa fa-caret-down");
+        arrow.innerHTML = "▼";
     }
-  }
-} */
+    evt.stopPropagation();
+    return;
+}
 
 function load(path="home", pushHistory=true) {
     /* Make an HTTP request using the attribute value as the file name: */
@@ -66,7 +62,7 @@ window.onpopstate = function(e) {
     return;
 };
 
-function getPageFromURL() {
+function getPageFromURL () {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams (queryString);
     var page = urlParams.get ('page');
