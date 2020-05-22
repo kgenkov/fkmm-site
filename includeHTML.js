@@ -26,45 +26,56 @@
   }
 } */
 
-function load(path="home") {
-      /* Make an HTTP request using the attribute value as the file name: */
-      elmnt = document.getElementById("content");
-      xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4) {
-          if (this.status == 200) {
-            elmnt.innerHTML = this.response;
-            document.getElementById("lastModified").innerHTML="Последна промяна: " + this.getResponseHeader("Last-Modified");
-            document.getElementById("title").innerHTML=document.getElementById("setTitle").innerHTML;
-            document.getElementById("setTitle").style.display="none";
-            location.hash = " ";
-            location.hash = "";
-            scroll = path.split("#")[1];
-            if (scroll != undefined) {
-                location.hash = scroll;
-            }
-          }
-          if (this.status == 404) {
-            elmnt.innerHTML = "<h2 class='w3-panel w3-card w3-border w3-leftbar w3-border-red w3-pale-yellow w3-center w3-padding-16'>Страницата не е намерена!</h2>";
-            document.getElementById("lastModified").innerHTML="";
-            document.getElementById("title").innerHTML="";
-          }
+function load(path="home", pushHistory=true) {
+    /* Make an HTTP request using the attribute value as the file name: */
+    elmnt = document.getElementById("content");
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4) {
+      if (this.status == 200) {
+        elmnt.innerHTML = this.response;
+        document.getElementById("lastModified").innerHTML="Последна промяна: " + this.getResponseHeader("Last-Modified");
+        document.getElementById("title").innerHTML=document.getElementById("setTitle").innerHTML;
+        document.getElementById("setTitle").style.display="none";
+        scroll = path.split("#")[1];
+        if (scroll != undefined) {
+            location.hash = scroll;
         }
       }
-      history.pushState("", document.title , '?page='+path);
-
-      xhttp.open("GET", path.split("#")[0]+".html", true);
-      xhttp.send();      
-      w3_close();
-      /* Exit the function: */
-      return;
+      if (this.status == 404) {
+        elmnt.innerHTML = "<h2 class='w3-panel w3-card w3-border w3-leftbar w3-border-red w3-pale-yellow w3-center w3-padding-16'>Страницата не е намерена!</h2>";
+        document.getElementById("lastModified").innerHTML="";
+        document.getElementById("title").innerHTML="";
+      }
+    }
+    }
+    if (pushHistory==true){
+        window.scrollTo(0, 0); // Scroll to top only if a new page is loaded
+        history.pushState("", document.title , '?page='+path);
+    }
+    xhttp.open("GET", path.split("#")[0]+".html", true);
+    xhttp.send();      
+    w3_close();
+    /* Exit the function: */
+    return;
 }
 
-function loadMainContent() {
+window.onpopstate = function(e) {
+    path = getPageFromURL ();
+    load (path,false);
+    return;
+};
+
+function getPageFromURL() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams (queryString);
     var page = urlParams.get ('page');
     if (page == null) page = "home";
+    return page;
+}
+
+function loadMainContent() {
+    page = getPageFromURL ();
     load(page);
     return;
 }
