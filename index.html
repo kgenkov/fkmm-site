@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="bg">
+<html lang="bg" class="w3-blue-grey">
 <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-<script src="includeHTML.js" charset="utf-8"></script>
+<script src="fkmm.js" charset="utf-8"></script>
 <title>кат. ФКММ</title>
 <link rel="stylesheet" href="w3.css">
 <link rel="stylesheet" href="fkmm.css">
 <link rel="icon" href="img/favicon.png" type="image/png" sizes="16x16">
 
-<body class="w3-auto">
+<body class="w3-auto w3-white">
 
 <!-- Меню -->
 <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-light-grey" style="width:200px" id="menu">
     <img src="img/fkmm-logo.svg" alt="ФКММ лого" style="width:100%" class="w3-padding-32 w3-hide-small w3-hide-medium" onclick='load("home")'>
-    <button class="w3-bar-item w3-button w3-large w3-hide-large kvg-accent" onclick="w3_close()">&times; Затвори</button>
+    <button class="w3-bar-item w3-button w3-large w3-hide-large kvg-color" onclick="w3_close()">&times; Затвори</button>
     <h2 class="w3-center">Навигация</h2>
     <nav>
     <ul>
@@ -27,6 +27,7 @@
                 <arrow class="fa fa-caret-right w3-col s2 w3-button" onclick="expandMenu(event)">►</arrow>
             </div>
             <ul class=" w3-hide">
+                <li><a class="w3-bar-item w3-button" target="_blank" href="http://www.raman.phys.uni-sofia.bg/">Спекроскопия на кристали</a></li>
                 <li><a class="w3-bar-item w3-button" target="_blank" href="http://www.phys.uni-sofia.bg/~vtd/research-NSPV.htm">Електронни и фононни свойства</a></li>
                 <li><a class="w3-bar-item w3-button" target="_blank" href="http://semicond.phys.uni-sofia.bg/"> Физика и техника на полупроводниците</a></li>
             </ul>
@@ -45,44 +46,22 @@
         <li><a class="w3-bar-item w3-button" href="javascript:" onclick='load("contact")'>Контакти</a></li>
     </ul>
     </nav>
-    <script>
-    function expandMenu(evt) {
-        tag = evt.currentTarget.tagName;
-        console.log (tag);
-        if (tag == "A") {
-            arrow = evt.currentTarget.parentNode.getElementsByTagName("arrow")[0];
-        } else if (tag == "DIV") {
-            var arrow = evt.currentTarget.getElementsByTagName("arrow")[0];
-        } else if (tag == "ARROW") {
-            var arrow = evt.currentTarget;
-        } else {return};
-        target = arrow.parentNode.parentNode.getElementsByTagName("ul")[0];
-        if (target.className.indexOf("w3-hide") == -1) {
-            target.className += " w3-hide";
-            arrow.className = arrow.className.replace("fa fa-caret-down", "fa fa-caret-right");
-            arrow.innerHTML = "►";
-        } else { 
-            target.className = target.className.replace(" w3-hide", "");
-            arrow.className = arrow.className.replace("fa fa-caret-right", "fa fa-caret-down");
-            arrow.innerHTML = "▼";
-        }
-        evt.stopPropagation();
-        return;
-    }
-    </script>
 </div>
 
 <!-- Страница -->
 <div class="w3-main w3-border-right" style="margin-left:200px; transition:none">
-<header class="w3-container w3-border-bottom w3-pale-blue w3-border-blue-gray">
-    <button class="w3-button w3-xlarge w3-hide-large kvg-color" onclick="w3_open()">&#9776;</button>
+<header class="w3-container w3-border-bottom w3-pale-blue fkmm-border">
+    <button class="kvg-color w3-button w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
     <h3 class="w3-center">Физика на кондензираната материя и микроелектроника</h3>
     <h1 class="w3-container w3-center" id="title">Начална страница</h1>
 </header>
 
 <!-- Тук се зарежда съдържанието -->
 <div class = "w3-container w3-padding-16 content" id="content">
-
+    <div class="w3-panel w3-card w3-pale-yellow w3-display-container w3-border w3-topbar w3-border-red">
+        <h3>Сайтът не поддържа Internet Explorer и използва JavaScript!</h3>
+        <p>Моля, използвайте съвременен браузер, за да разглеждате този сайт! Също така, моля, разрешете JavaScript! Ако не ползвате Internet Explorer, имате активиран JavaScript и все още виждате това съобщение, моля, свържете се с администратора на сайта на kgenkov (маймунка) uni-sofia.bg.</p> 
+    </div>
 </div>
 
 <footer class="w3-container w3-padding-small w3-center w3-text-grey footer" style="">
