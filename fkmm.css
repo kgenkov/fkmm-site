@@ -43,6 +43,12 @@ nav ul {
     padding:8px;
 }
 
+.fkmm-soon::before{content:"скоро";display:inline-block;padding-left:8px;padding-right:8px;text-align:center}
+.fkmm-new::before{content:"ново!";display:inline-block;padding-left:8px;padding-right:8px;text-align:center}
+.fkmm-flex{display:flex}
+.fkmm-flex-col{flex:1}
+@media (max-width:600px) {.kvg-flex{flex-wrap:wrap}}
+
  a[target='_blank']::after {
     content:'\2197';
     font-weight: bold;
