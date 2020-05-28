@@ -178,7 +178,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-pale-blue,.w3-hover-pale-blue:hover{color:#000!important;background-color:#ddffff!important}
 .w3-text-amber,.w3-hover-text-amber:hover{color:#ffc107!important}
 .w3-text-aqua,.w3-hover-text-aqua:hover{color:#00ffff!important}
-.fkmm-text-color,.w3-text-blue,.w3-hover-text-blue:hover{color:#2196F3!important}
+a:hover,.fkmm-text-color,.w3-text-blue,.w3-hover-text-blue:hover{color:#2196F3!important}
 .w3-text-light-blue,.w3-hover-text-light-blue:hover{color:#87CEEB!important}
 .w3-text-brown,.w3-hover-text-brown:hover{color:#795548!important}
 .w3-text-cyan,.w3-hover-text-cyan:hover{color:#00bcd4!important}
@@ -188,7 +188,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-text-indigo,.w3-hover-text-indigo:hover{color:#3f51b5!important}
 .w3-text-khaki,.w3-hover-text-khaki:hover{color:#b4aa50!important}
 .w3-text-lime,.w3-hover-text-lime:hover{color:#cddc39!important}
-.fkmm-text-accent,a:hover,.w3-text-orange,.w3-hover-text-orange:hover{color:#ff9800!important}
+.fkmm-text-accent,.w3-text-orange,.w3-hover-text-orange:hover{color:#ff9800!important}
 .w3-text-deep-orange,.w3-hover-text-deep-orange:hover{color:#ff5722!important}
 .w3-text-pink,.w3-hover-text-pink:hover{color:#e91e63!important}
 .w3-text-purple,.w3-hover-text-purple:hover{color:#9c27b0!important}
