@@ -25,6 +25,7 @@ body {
 nav ul ul {
     list-style-type: none;
     padding-left: 8px;
+    font-size: 85%;
 }
 nav ul {
     list-style-type: none;padding-left: 0;
