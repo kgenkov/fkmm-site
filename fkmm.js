@@ -1,3 +1,5 @@
+TITLE = document.title;
+
 function expandMenu(evt) {
     tag = evt.currentTarget.tagName;
     console.log (tag);
@@ -24,7 +26,7 @@ function expandMenu(evt) {
 
 function load(path, pushHistory) {
     if(!path) path="home";
-    if(!pushHistory) pushHistory=true;
+    if(pushHistory == undefined) pushHistory=true;
     /* Make an HTTP request using the attribute value as the file name: */
     elmnt = document.getElementById("content");
     xhttp = new XMLHttpRequest();
@@ -32,8 +34,9 @@ function load(path, pushHistory) {
     if (this.readyState == 4) {
       if (this.status == 200) {
         elmnt.innerHTML = this.response;
-        document.getElementById("lastModified").innerHTML="Последна промяна: " + this.getResponseHeader("Last-Modified");
-        document.getElementById("title").innerHTML=document.getElementById("setTitle").innerHTML;
+        document.getElementById("lastModified").innerHTML = "Последна промяна: " + this.getResponseHeader("Last-Modified");
+        document.getElementById("title").innerHTML = document.getElementById("setTitle").innerHTML;
+        document.title = TITLE + document.getElementById("setTitle").innerText;
         document.getElementById("setTitle").style.display="none";
         scroll = path.split("#")[1];
         if (scroll != undefined) {
@@ -49,7 +52,7 @@ function load(path, pushHistory) {
     }
     if (pushHistory==true){
         window.scrollTo(0, 0); // Scroll to top only if a new page is loaded
-        history.pushState({'path':path}, document.title + ": " +  document.getElementById("title").innerText , path);
+        history.pushState({'path':path}, document.title + ": " +  document.getElementById("title").innerText, path);
     }
     xhttp.open("GET", path.split("#")[0]+".html", true);
     xhttp.send();      
