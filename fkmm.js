@@ -1,5 +1,3 @@
-TITLE = document.title;
-
 function expandMenu(evt) {
     tag = evt.currentTarget.tagName;
     console.log (tag);
@@ -36,7 +34,7 @@ function load(path, pushHistory) {
         elmnt.innerHTML = this.response;
         document.getElementById("lastModified").innerHTML = "Последна промяна: " + this.getResponseHeader("Last-Modified");
         document.getElementById("title").innerHTML = document.getElementById("setTitle").innerHTML;
-        document.title = TITLE + document.getElementById("setTitle").innerText;
+        document.title = TITLE + ": " + document.getElementById("setTitle").innerText;
         document.getElementById("setTitle").style.display="none";
         scroll = path.split("#")[1];
         if (scroll != undefined) {
@@ -52,7 +50,7 @@ function load(path, pushHistory) {
     }
     if (pushHistory==true){
         window.scrollTo(0, 0); // Scroll to top only if a new page is loaded
-        history.pushState({'path':path}, document.title + ": " +  document.getElementById("title").innerText, path);
+        history.pushState({'path':path}, document.titlegit , path);
     }
     xhttp.open("GET", path.split("#")[0]+".html", true);
     xhttp.send();      
