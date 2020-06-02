@@ -49,7 +49,7 @@ function load(path, pushHistory) {
     }
     if (pushHistory==true){
         window.scrollTo(0, 0); // Scroll to top only if a new page is loaded
-        history.pushState("", document.title , path);
+        history.pushState({'path':path}, document.title + ": " +  document.getElementById("title").innerText , path);
     }
     xhttp.open("GET", path.split("#")[0]+".html", true);
     xhttp.send();      
