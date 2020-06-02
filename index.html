@@ -20,14 +20,14 @@
     <h2 class="w3-center">Навигация</h2>
     <nav>
     <ul>
-        <li><a class="w3-bar-item w3-button" href="javascript:load('home')">Начало</a></li>
-        <li><a class="w3-bar-item w3-button" href="javascript:load('about')">За катедрата</a></li>
-        <li><a class="w3-bar-item w3-button" href='javascript:load("staff")'>Състав</a></li>
-        <li><a class="w3-bar-item w3-button" href="javascript:load('thesis-topics')">Теми за дипломни работи</a></li>
+        <li><a class="w3-bar-item w3-button" href="home" onclick="event.preventDefault(); load('home')">Начало</a></li>
+        <li><a class="w3-bar-item w3-button" href="about" onclick="event.preventDefault(); load('about')">За катедрата</a></li>
+        <li><a class="w3-bar-item w3-button" href="staff" onclick="event.preventDefault(); load('staff')">Състав</a></li>
+        <li><a class="w3-bar-item w3-button" href="thesis-topics" onclick="event.preventDefault(); load('thesis-topics')">Теми за дипломни работи</a></li>
         
         <li>
             <div class="fkmm-collapse  w3-row">
-                <a class="w3-col s10 w3-button" href="javascript:load('labs')">Лаборатории</a>
+                <a class="w3-col s10 w3-button" href="labs" onclick="event.preventDefault(); load('labs')">Лаборатории</a>
                 <arrow class="fa fa-caret-right w3-col s2 w3-button" onclick="expandMenu(event)">►</arrow>
             </div>
             <ul class=" w3-hide">
@@ -47,7 +47,7 @@
                 <li><a class="w3-bar-item w3-button" target="_blank" href="http://fttme.phys.uni-sofia.bg/">ФТТМЕ (стар сайт)</a></li>
             </ul>
         </li>
-        <li><a class="w3-bar-item w3-button" href="contact" onclick='event.preventDefault(); load("contact")'>Контакти</a></li>
+        <li><a class="w3-bar-item w3-button" href="contact" onclick="event.preventDefault(); load('contact')">Контакти</a></li>
         <li class="w3-bar w3-border-top">
             <div class="w3-bar-item w3-row w3-button" style="padding:0" onclick="expandMenu(event)">
                 <a class="w3-button w3-col s10" style="text-align:left"> Връзки </a> 
