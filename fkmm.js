@@ -49,7 +49,7 @@ function load(path, pushHistory) {
     }
     if (pushHistory==true){
         window.scrollTo(0, 0); // Scroll to top only if a new page is loaded
-        history.pushState("", document.title , '?page='+path);
+        history.pushState("", document.title , path);
     }
     xhttp.open("GET", path.split("#")[0]+".html", true);
     xhttp.send();      
@@ -65,10 +65,8 @@ window.onpopstate = function(e) {
 };
 
 function getPageFromURL () {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams (queryString);
-    var page = urlParams.get ('page');
-    if (page == null) page = "home";
+    page = window.location.pathname;
+    if (page == "/" || page == "") page = "home";
     return page;
 }
 
@@ -84,4 +82,4 @@ function w3_open() {
 function w3_close() {
     document.getElementById("menu").style.display = "none";
 }
-
+    
