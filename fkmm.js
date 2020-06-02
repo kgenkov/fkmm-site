@@ -38,6 +38,7 @@ function load(path, pushHistory) {
         document.getElementById("setTitle").style.display="none";
         scroll = path.split("#")[1];
         if (scroll != undefined) {
+            history.replaceState ("","",path.split("#")[0]); // грозно, но иначе не работи скролът или се налага да спамя историята на браузъра
             location.hash = scroll;
         }
       }
@@ -45,13 +46,14 @@ function load(path, pushHistory) {
         elmnt.innerHTML = "<h2 class='w3-panel w3-card w3-border w3-leftbar w3-border-red w3-pale-yellow w3-center w3-padding-16'>Страницата не е намерена!</h2>";
         document.getElementById("lastModified").innerHTML="";
         document.getElementById("title").innerHTML="";
+      }    
+      if (pushHistory==true){
+        if (scroll==undefined) window.scrollTo(0, 0); // Scroll to top only if a new page is loaded and there is no anchor in the url
+        history.pushState({'path':path}, document.title, path);
       }
     }
     }
-    if (pushHistory==true){
-        window.scrollTo(0, 0); // Scroll to top only if a new page is loaded
-        history.pushState({'path':path}, document.titlegit , path);
-    }
+
     xhttp.open("GET", path.split("#")[0]+".html", true);
     xhttp.send();      
     w3_close();
@@ -66,7 +68,7 @@ window.onpopstate = function(e) {
 };
 
 function getPageFromURL () {
-    page = window.location.pathname;
+    page = location.pathname + location.hash;
     if (page == "/" || page == "") page = "home";
     return page;
 }
