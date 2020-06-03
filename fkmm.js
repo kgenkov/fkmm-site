@@ -2,11 +2,11 @@ function expandMenu(evt) {
   tag = evt.currentTarget.tagName;
   console.log (tag);
   if (tag == "A") {
-    arrow = evt.currentTarget.parentNode.getElementsByTagName("arrow")[0];
+    arrow = evt.currentTarget.parentNode.getElementsByTagName("fkmm-arrow")[0];
   } else if (tag == "DIV") {
-    var arrow = evt.currentTarget.getElementsByTagName("arrow")[0];
-  } else if (tag == "ARROW") {
-    var arrow = evt.currentTarget;
+    arrow = evt.currentTarget.getElementsByTagName("fkmm-arrow")[0];
+  } else if (tag == "FKMM-ARROW") {
+    arrow = evt.currentTarget;
   } else {return};
   target = arrow.parentNode.parentNode.getElementsByTagName("ul")[0];
   if (target.className.indexOf("w3-hide") == -1) {
