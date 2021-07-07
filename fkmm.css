@@ -44,6 +44,9 @@ nav ul {
     padding:8px;
 }
 
+table.fkmm-table tr:nth-child(4n+2) {background: #EEE}
+table.fkmm-table tr:nth-child(4n+3) {background: #EEE}
+
 .fkmm-soon::before{content:"скоро";display:inline-block;padding-left:8px;padding-right:8px;text-align:center}
 .fkmm-new::before{content:"ново!";display:inline-block;padding-left:8px;padding-right:8px;text-align:center}
 .fkmm-flex{display:flex}
