@@ -36,6 +36,12 @@ function load(path, pushHistory) {
         document.getElementById("title").innerHTML = document.getElementById("setTitle").innerHTML;
         document.title = TITLE + ": " + document.getElementById("setTitle").innerText;
         document.getElementById("setTitle").style.display="none";
+        var codes;
+        codes = elmnt.getElementsByTagName("script");
+        for(var j=0;j<codes.length;j++)
+        {
+           eval(codes[j].text);
+        }
         if (pushHistory==true){
           scroll = path.split("#")[1];
           if (scroll == undefined) {
@@ -87,4 +93,24 @@ function w3_open() {
 function w3_close() {
   document.getElementById("menu").style.display = "none";
 }
-    
+
+/* Slideshows */
+var slideIndex = 1;
+function plusDivs(n, classname) {
+  showDivs(slideIndex += n, classname);
+}
+
+function currentDiv(n, classname) {
+  showDivs(slideIndex = n, classname);
+}
+
+function showDivs(n, classname) {
+  var i;
+  var x = document.getElementsByClassName(classname);
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";
+}
