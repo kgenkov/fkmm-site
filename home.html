@@ -2,21 +2,12 @@
 <link rel="stylesheet" href="w3.css">
 <H1 id="setTitle">Начална страница</H1>
 <div>
-    <h2> Добре дошли в сайта на катедра „Физика на кондензираната материя и микроелектроника“! </h2>
+    <h2 class="w3-center"> Добре дошли в сайта на катедра <br/>„Физика на кондензираната материя и микроелектроника“! </h2>
 </div>
-<div class="w3-panel">
+<div class="w3-content w3-padding-16" style="width: max-content">
     <h3> Тук ще намерите информация за: </h3>
-    <li> Темите за дипломни работи, които предлагаме </li>
-    <li> Преподавателите и служителите на катедрата </li>
-    <li class='fkmm-soon'> Учебни планове и програми </li> 
-    <li class='fkmma-soon'> Нашите научни групи и лаборатории </li>
-</div>
-<div class="w3-panel w3-card w3-pale-yellow w3-display-container">
-    <h3>Сайтът е в процес на изграждане!!</h3>
-    <span onclick="this.parentElement.style.display='none'" class="w3-button w3-display-topright">&times</span>
-    <p>Катедри <b>„Физика на кондензираната материя“</b> и <b>„Физика на твърдото тяло и микроелектроника“</b> наскоро се обединиха в катедра <b>„Физика на кондензираната материя и микроелектроника“</b>. Тук ще се помещава новият сайт на обединената катедра, който все е в процес на разработка и допълване с информация. Можете да разгледате и старите сайтове на катедрите.</p> 
-</div>
-<div class = "w3-container w3-center">
-    <a class = "w3-button kvg-color" target="_blank" href="http://fkm.phys.uni-sofia.bg/">ФКМ (стар сайт)</a>
-    <a class = "w3-button kvg-color" target="_blank" href="http://fttme.phys.uni-sofia.bg/">ФТТМЕ (стар сайт)</a>
+    <li> <a href="elective-courses" onclick="event.preventDefault(); load('elective-courses')">Изборните курсове</a>, които предлагаме </li>
+    <li> <a href="thesis-topics" onclick="event.preventDefault(); load('thesis-topics')">Темите за дипломни работи</a>, които предлагаме </li>
+    <li> <a href="staff" onclick="event.preventDefault(); load('staff')">Преподавателите и служителите</a> на катедрата </li>
+    <li class='fkmm-soon'> Нашите <a href="labs" onclick="event.preventDefault(); load('labs')">научни групи и лаборатории</a> </li>
 </div>
