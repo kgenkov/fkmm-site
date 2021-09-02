@@ -1,0 +1,24 @@
+<meta charset="UTF-8">
+<link rel="stylesheet" href="w3.css">
+<H1 id="setTitle">Галерия</H1>
+<style>
+  .mySlides {display:none}
+  .w3-left, .w3-right {cursor:pointer}
+</style>
+
+<!Слайдшоу>
+<div class="w3-content w3-display-container" style="max-width:800px">
+  <img class="mySlides" src="img/lab-nano-1.jpg" style="width:100%">
+  <img class="mySlides" src="img/lab-nano-2.jpg" style="width:100%">
+  <img class="mySlides" src="img/lab-nano-3.jpg" style="width:100%">
+  <img class="mySlides" src="img/lab-nano-4.jpg" style="width:100%">
+  <div class="w3-container w3-large w3-text-white w3-display-middle" style="width:100%">
+    <div class="w3-left w3-black w3-opacity w3-hover-opacity-off" onclick="plusDivs(-1,'mySlides')">&#10094;</div>
+    <div class="w3-right w3-black w3-opacity w3-hover-opacity-off" onclick="plusDivs(1, 'mySlides')">&#10095;</div>
+  </div>
+</div>
+
+<script>
+slideIndex = 1;
+showDivs(slideIndex, "mySlides");
+</script>
