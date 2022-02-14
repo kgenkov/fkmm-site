@@ -1,2 +1,2 @@
 RewriteEngine on
-RewriteRule ^([-#а-яА-Я\w]+)$ / [P] 
+RewriteRule ^([-#а-яА-Я\w]+)$ / [L] 
